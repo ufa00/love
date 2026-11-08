@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header><h1>to basbosty</h1></header>
+
+  <!-- الكارد الأول -->
+  <div class="card-container">
+    <input type="checkbox" id="card-toggle">
+    <label for="card-toggle" class="card">
+      <div class="card-front">
+        <h2>احلي حاجه حصلت ليا ف حياتي 😍</h2>
+        <p>دوسي هنا عشان تفتحي الكارد...</p>
+      </div>
+      <div class="card-back">
+        <h2>بحبك علشان 💖</h2>
+        <p>أنت أجمل حاجة حصلتلي ف حياتي</p>
+      </div>
+    </label>
+  </div>
+
+  <!-- الكارد الثاني -->
+  <div class="card-container">
+    <input type="checkbox" id="card-toggle2">
+    <label for="card-toggle2" class="card">
+      <div class="card-front">
+        <h2>the First thing i want to say 💌</h2>
+        <p>Click to open...</p>
+      </div>
+      <div class="card-back">
+        <h2>You mean the world to me ✨</h2>
+        <p>You know how much I love you, but you can't even imagine how deep it is. You are the sweetest...</p>
+      </div>
+    </label>
+  </div>
+
+  <!-- عنصر الصوت (تأكد إن اسم الملف في الفولدر love-song.mp3) -->
+  <audio id="love-song" preload="auto" loop>
+    <source src="love-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- السكريبت الصح والمربوط بالكارد الأول -->
+  <script>
+    const firstCard = document.getElementById('card-toggle');
+    const song = document.getElementById('love-song');
+
+    // أول ما تدوس على أول كارد وتفتحه
+    firstCard.addEventListener('change', function() {
+      if (this.checked) {
+        song.currentTime = 24; // تبدأ من الثانية 24
+        song.play().catch(function(err) {
+          console.log("خطأ في التشغيل:", err);
+        });
+      }
+    });
+
+    // أول ما الأغنية توصل للدقيقة 1:11 (الثانية 71) ترجع تعيد من 24 تاني
+    song.addEventListener('timeupdate', function() {
+      if (this.currentTime >= 71) {
+        this.currentTime = 24;
+      }
+    });
+  </script>
+</body>
+</html>

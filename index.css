@@ -1,0 +1,68 @@
+body{
+    background-color: pink;
+}
+header{
+    font-size: 40px;
+    font-family: serif;
+    text-align: center;
+    color: navy;
+}
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + .card {
+  transform: rotateY(180deg);
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  perspective: 1000px;
+}
+
+.card {
+  width: 320px;
+  height: 210px;
+  cursor: pointer;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+#card-toggle:checked + .card {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff0f3;
+  border: 2px solid #ff758f;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255, 117, 143, 0.2);
+}
+
+.card-front {
+  color: #1a1b4b; 
+}
+
+
+.card-back {
+  color: #1a1b4b;
+  transform: rotateY(180deg);
+}
+#card-toggle1, #card-toggle2, #card-toggle3 {
+  display: none;
+}
