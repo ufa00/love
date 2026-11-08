@@ -7,7 +7,6 @@
 <body>
   <header><h1>to basbosty</h1></header>
 
-  <!-- الكارد الأول -->
   <div class="card-container">
     <input type="checkbox" id="card-toggle">
     <label for="card-toggle" class="card">
@@ -22,7 +21,6 @@
     </label>
   </div>
 
-  <!-- الكارد الثاني -->
   <div class="card-container">
     <input type="checkbox" id="card-toggle2">
     <label for="card-toggle2" class="card">
@@ -32,32 +30,29 @@
       </div>
       <div class="card-back">
         <h2>You mean the world to me ✨</h2>
-        <p>You know how much I love you, but you can't even imagine how deep it is. You are the sweetest...</p>
+        <p>You know how much I love you, but you can't even imagine how deep it is. You are the sweetest and most precious thing that ever happened to me. May God keep you safe for me and always keep your light shining in my life, my Basbosty ❤️</p>
+        
       </div>
     </label>
   </div>
 
-  <!-- عنصر الصوت (تأكد إن اسم الملف في الفولدر love-song.mp3) -->
   <audio id="love-song" preload="auto" loop>
     <source src="love-song.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- السكريبت الصح والمربوط بالكارد الأول -->
   <script>
     const firstCard = document.getElementById('card-toggle');
     const song = document.getElementById('love-song');
 
-    // أول ما تدوس على أول كارد وتفتحه
     firstCard.addEventListener('change', function() {
       if (this.checked) {
-        song.currentTime = 24; // تبدأ من الثانية 24
+        song.currentTime = 24; 
         song.play().catch(function(err) {
           console.log("خطأ في التشغيل:", err);
         });
       }
     });
 
-    // أول ما الأغنية توصل للدقيقة 1:11 (الثانية 71) ترجع تعيد من 24 تاني
     song.addEventListener('timeupdate', function() {
       if (this.currentTime >= 71) {
         this.currentTime = 24;
